@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="keywords"content=" ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>home page</title>
+<link rel="stylesheet" href="./decoration.css">
+</head>
+<body>
+    <header>
+      <img  class="image" src="https://adminassets.devops.arabiaweather.com/sites/default/files/field/image/nasa-space.jpg"alt="this is a picture">
+
+    <h1>Welcome to Astrobio</h1>
+    <p>that's one small step for a man , one giant leap for mankind
+        <p>The small step is :Astrobiology</p>
+<p>The Leap is: Space Habitation</p>
+    </p>
+</header>
+
+<main>
+    <div class="information">
+        
+       
+
+<form onsubmit="return goToPage()">
+    <h2>Enter your personal information</h2>
+    <label for="user">User Name:</label>
+    <input type="text" id="user" placeholder="enter your name......" required>
+    <br>
+    <h2>Stage</h2>
+    <input type="radio" id="res" name="choice" value="Researcher">
+    <label for="res">Researcher</label>
+
+    <input type="radio" id="student" name="choice" value="Student">
+    <label for="student">Student</label> 
+    <br><br>
+
+    <button type="submit" class="buttont">Submit</button>
+</form>
+
+<script>
+function goToPage() {
+    let name = document.getElementById("user").value.trim();
+    let choice = document.querySelector('input[name="choice"]:checked');
+
+    if (!name) {
+        alert("Please enter your name");
+        return false;
+    }
+
+    if (!choice) {
+        alert("Please select Student or Researcher");
+        return false;
+    }
+
+    // نخزن البيانات في LocalStorage
+    localStorage.setItem("username", name);
+    localStorage.setItem("stage", choice.value);
+
+    // نحول المستخدم للصفحة المطلوبة
+    if (choice.value === "Student") {
+        window.location.href = "./challenges.html";
+    } else {
+        window.location.href = "researcher2.html";
+    }
+
+    return false; 
+}
+</script>
+
+
+
+
+
+</div>
